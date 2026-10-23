@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Welcome";
+}
+<h1>Chao @ViewData["name"] </h1>
+<h2>Numtimes @ViewData["numtimes"]</h2>
+{
+    @for (var i = 0; i < (int)ViewData["numtimes"]; i++)
+{
+    <h1>@ViewBag.Massage</h1>
+}
+}

@@ -1,0 +1,28 @@
+﻿@model List<day2_minhanh.Models.Course>
+
+@{
+    ViewData["Title"] = "Trang chủ - Demo";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Demo Partial View và ViewComponent</h2>
+
+    <div class="row">
+        <!-- 1. GỌI VIEWCOMPONENT -->
+        <div class="col-12 mb-4">
+            @await Component.InvokeAsync("Notification", new { message = "Chào mừng bạn đến với bài tập của Minh Anh!" })
+        </div>
+
+        <!-- 2. GỌI PARTIAL VIEW (Truyền đường dẫn chuẩn) -->
+        <div class="col-md-8 offset-md-2">
+            <h4>Danh sách khóa học (Dùng Partial View)</h4>
+            @if (Model != null)
+            {
+                @foreach (var course in Model)
+                {
+                    @await Html.PartialAsync("_CourseCard", course)
+                }
+            }
+        </div>
+    </div>
+</div>
